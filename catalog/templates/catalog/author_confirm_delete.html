@@ -1,0 +1,23 @@
+
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="panel panel-primary">
+        <div class="panel-heading"><h1>Delete Author</h1></div>
+        <div class="panel-body">
+                <p class="lead bg-danger">Are you sure you want to delete this Author: {{ author }}?</p>
+        </div>
+      </div>
+
+<div class="panel panel-warning col-md-5 text-center">
+    
+
+    
+
+    <form action="" method="POST">
+    {% csrf_token %}
+    <input class = "btn btn-danger" type="submit" action="" value="Yes, delete." />
+    </form>
+
+</div>
+{% endblock %}

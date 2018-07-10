@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="panel panel-primary col-md-10">
+  <div class="panel-heading"><h1>Borrowed books</h1></div>
+  <div class="panel-body lead"> 
+      {% if bookinstance_list %}
+     <ul class="list-gruop">
+    {% for bookinst in bookinstance_list %} 
+    
+    <li class="list-group-item d-flex justify-content-between align-items-center {% if bookinst.is_overdue %}text-danger{% endif %}">
+      <a href="{% url 'book-detail' bookinst.book.pk %}">{{bookinst.book.title}}</a> <span class="badge badge-primary badge-pill" >({{ bookinst.due_back }}) </span>       
+    </li>
+    {% endfor %}
+    </ul>
+
+  {% else %}
+    <p>There are no books borrowed.</p>
+  {% endif %}       </div>
+</div>
+  
+{% endblock %}

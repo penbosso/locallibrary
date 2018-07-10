@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<div class="panel panel-primary col-md-10">
+    <div class="panel-heading"><h1>Book List</h1></div>
+    <div class="panel-body">
+        {% if book_list %}
+        <ul class="list-group">
+    
+          {% for book in book_list %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <h3 class="lead"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})</h3>
+            {% if perms.catalog.library_staff %}
+            <a class="btn btn-sm text-warning" href="{% url 'book_update' book.id %}">Edit</a>
+            <a class="btn btn-sm text-danger" href="{% url 'book_delete' book.id %}">Delete</a>      
+            {% endif %}
+          </li>
+          {% endfor %}
+    
+        </ul>
+        {% else %}
+          <p>There are no books in the library.</p>
+        {% endif %}  
+    </div>
+  </div>
+
+{% endblock %}

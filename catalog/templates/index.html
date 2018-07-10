@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+
+{% block title %}<title>My Library</title>{% endblock %}
+
+{% block content %}
+<div class="panel panel-primary col-md-10">
+  <div class="panel-heading"><h1>Local Library Home</h1>
+    <p class="">Welcome to <em>My Library</em>, a very basic website developed as a tutorial example from Mozilla Developer Network.</p>
+  </div>
+  <div class="panel-body lead">
+    <h2 class="font-weight-bold">Dynamic content</h2>
+
+  <p class="">The library has the following record counts:</p>
+  <ul class="list-group">
+    <li class="list-group-item"><strong>Books:</strong> {{ num_books }}</li>
+    <li class="list-group-item"><strong>Copies:</strong> {{ num_instances }}</li>
+    <li class="list-group-item"><strong>Copies available:</strong> {{ num_instances_available }}</li>
+    <li class="list-group-item"><strong>Authors:</strong> {{ num_authors }}</li>
+    <li class="list-group-item"><strong>Book title contains "Love" :</strong> {{ num_books_with }}</li>
+    <li class="list-group-item"><strong>Genre:</strong> {{ num_genre }}</li>
+  </ul>
+  <p class="text-info">You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+  </div>
+</div>
+
+{% endblock %}
